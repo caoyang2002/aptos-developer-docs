@@ -9,7 +9,7 @@
     "build:prod": "next build; pnpm postbuild",
     "clean": "rimraf .next .turbo",
     "debug": "NODE_OPTIONS='--inspect' next dev",
-    "dev": "next -p 3030",
+    "dev": "next -p 3031",
     "prebuild": "node nextra-remote-filepaths/fetch.js",
     "postbuild": "node postbuild.js && next-sitemap --config next-sitemap.config.mjs",
     "predev": "pnpm prebuild",
@@ -57,12 +57,14 @@
   "devDependencies": {
     "@csstools/postcss-oklab-function": "^3.0.13",
     "@next/bundle-analyzer": "^13.4.19",
+    "@types/node": "^20.11.17",
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.33",
     "shiki": "^1.3.0",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "typescript": "5.4.5"
   },
   "nextBundleAnalysis": {
     "budget": 358400,
