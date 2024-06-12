@@ -2,7 +2,7 @@
 // Unfortunately making this a .ts file is not easily doable atm
 // TODO: revisit this if time allows
 
-const getOrigin = () => {
+export const getOrigin = () => {
   if (process.env.NEXT_PUBLIC_ORIGIN) {
     return process.env.NEXT_PUBLIC_ORIGIN;
   } else {
@@ -70,10 +70,10 @@ export const i18nConfig = Object.freeze({
     developerDiscussionsDescription:
       "Receive timely responses to your burning questions, from any timezone.",
     developerDiscussionsLink: "Join",
-    officeHoursLabel: "Office Hours",
-    officeHoursDescription:
-      "Enjoy dedicated live support from Aptos engineers.",
-    officeHoursLink: "Sign Up",
+    aptosLearnLabel: "Aptos Learn",
+    aptosLearnDescription:
+      "Master blockchain on Aptos Learn with comprehensive tutorials and guides for developers at all levels.",
+    aptosLearnLink: "Learn",
     grantsLabel: "Grants",
     grantsDescription:
       "Apply for grants from the Aptos Foundation to get your project moving.",
