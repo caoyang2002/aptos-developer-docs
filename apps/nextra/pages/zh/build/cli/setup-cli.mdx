@@ -23,7 +23,9 @@ import {Callout} from 'nextra/components'
 
    ```bash filename="Terminal"
    aptos init
+   ```
 
+   ```bash filename="Output" 
    Configuring for profile default
    Enter your rest endpoint [Current: None | No input: https://api.devnet.aptoslabs.com]
 
@@ -56,8 +58,13 @@ import {Callout} from 'nextra/components'
 
 ```bash filename="Terminal"
 aptos init --profile bob
-...
+```
+
+```bash filename="Terminal"
 aptos account fund-with-faucet --profile bob
+```
+
+```bash filename="Output"
 {
   "Result": "Added 100000000 Octas to account 0x63169727b08fc137b8720e451f7a90584ccce04c301e151daeadc7b8191fdfad"
 }

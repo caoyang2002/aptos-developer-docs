@@ -9,7 +9,7 @@ import {Callout} from 'nextra/components'
 # 使用 Aptos CLI 查询链上账户信息
 
 <Callout type="info" emoji="ℹ️">
-如果您尚未安装 Aptos CLI，可以按照[安装步骤](../install-cli.mdx)进行安装。
+如果您尚未安装 Aptos CLI，可以按照[安装步骤](../../cli.mdx)进行安装。
 </Callout>
 
 您可以通过运行以下命令查询账户在链上的资源和数据：
@@ -18,7 +18,9 @@ import {Callout} from 'nextra/components'
 aptos account list --account <your-profile-name-or-account-address>
 ```
 
-这将显示一个账户拥有的所有资源。例如：
+这将展示一个账户所拥有的所有资源。例如，下面显示余额为 `coin:value`，而与原生 gas token APT 相关的 coin 将是 `0x1::aptos_coin::AptosCoin`。
+
+这是以精确的形式呈现的，所以在这种情况下是 `10^-8` 或 8 个十进制小数点的零。
 
 ```json filename="Output"
 {
