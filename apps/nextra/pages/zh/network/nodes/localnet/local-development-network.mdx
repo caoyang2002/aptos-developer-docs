@@ -17,7 +17,7 @@ import { Callout, Steps } from 'nextra/components';
 # 启动本地网络
 
 <Steps>
-### 确保您已安装 [Aptos CLI](../../../build/cli/install-cli.mdx)。
+### 确保您已安装 [Aptos CLI](../../../build/cli.mdx)。
 
 ### 确保您已安装[Docker](https://docs.docker.com/get-docker/)
 
@@ -131,7 +131,7 @@ Unexpected：Failed to apply pre-run steps for Postgres: Docker is not available
 - [Indexer API](../../../build/indexer/api.mdx)：这是一个提供丰富读访问功能的 [GraphQL API]((https://graphql.org/))，专门用于索引区块链数据。点击上述 Indexer API 的链接（默认为 http://127.0.0.1:8090 ），即可打开 Hasura Console。这是一个 Web 界面，能帮助你方便地查询 Indexer GraphQL API。
 - [Transaction Stream Service](../../../build/indexer/txn-stream.mdx)：这是 Indexer API 所用的 gRPC 事务流，仅在你构建[自定义处理器](../../../build/indexer/custom-processors.mdx)时才需要关注。
 - [Postgres](https://www.postgresql.org/)：这是 Indexer 处理器写入的数据库。Indexer API 从这个数据库读取。
-- [Faucet](../../glossary.mdx#faucet)：您可以使用它为您本地网络中的帐户提供资金。
+- [Faucet](../../../build/guides/system-integrators-guide.mdx#integrating-with-the-faucet)：您可以使用它为您本地网络中的帐户提供资金。
 
 如果您不想运行网络的任何子组件，可以使用命令来禁用它们。
 

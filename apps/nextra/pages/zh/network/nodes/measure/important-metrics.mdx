@@ -31,12 +31,12 @@ import {Callout, Steps} from 'nextra/components';
 
 如果您正在运行全节点（或者仍然需要同步到最新区块链状态的验证节点），以下 [状态同步](../configure/state-sync.mdx)指标很重要：
 
-1. `aptos_state_sync_version{type="synced"}`：该指标用于展示节点当前同步到的状态，也就是它处理过的交易总数。如果该指标不再上升，说明节点处于非同步状态。此外，若该指标的增长速度跟不上区块链中新交易的提交速度，节点就很可能无法与网络其他部分实时同步。值得一提的是，如果您启用了[快速同步](../../nodes/configure/state-sync.mdx#fast-syncing)功能，在所有状态全部下载完毕前，此指标将不会有任何变化，这一过程有时可能较长。详见下文第三点。
+1. `aptos_state_sync_version{type="synced"}`：该指标用于展示节点当前同步到的状态，也就是它处理过的交易总数。如果该指标不再上升，说明节点处于非同步状态。此外，若该指标的增长速度跟不上区块链中新交易的提交速度，节点就很可能无法与网络其他部分实时同步。值得一提的是，如果您启用了[快速同步](../configure/state-sync.mdx#快速同步)功能，在所有状态全部下载完毕前，此指标将不会有任何变化，这一过程有时可能较长。详见下文第三点。
 
 2. `aptos_data_client_highest_advertised_data{data_type="transactions"}`：这个指标显示与您的节点连接的对等节点同步并宣传的最高版本。因此，当这个指标高于 `aptos_state_sync_version{type="synced"}`（上述）时，意味着您的节点可以看到新的区块链数据，并将从其对等节点同步数据。
    此指标展示了您的节点连接的对等节点中所报告的最高同步版本。如果此指标的数值高于 `aptos_state_sync_version{type="synced"}`（前文提及的），这表明您的节点能够接收到最新的区块链信息，并将开始从对等节点（peer）中同步这些数据。
 
-3. `aptos_state_sync_version{type="synced_states"}`：此指标记录了节点在快速同步过程中下载的状态数。如果此数值停止增长，同时 `aptos_state_sync_version{type="synced"}`（前文提及的）的数值也没有增加，这通常表明节点没有进行任何同步操作，很可能出现了某些问题。
+3. `aptos_state_sync_version{type="synced_states"}`：此指标记录了节点在[快速同步](../configure/state-sync.mdx#快速同步)过程中下载的状态数。如果此数值停止增长，同时 `aptos_state_sync_version{type="synced"}`（前文提及的）的数值也没有增加，这通常表明节点没有进行任何同步操作，很可能出现了某些问题。
 
 4. `aptos_state_sync_bootstrapper_errors` 和 `aptos_state_sync_continuous_syncer_errors`：若您的节点同步时出现故障（或临时失败），则每当出现错误时，相关指标的数值会相应增加。其中，指标中的 `error_label` 会明示具体的错误类型。
 
@@ -52,7 +52,7 @@ import {Callout, Steps} from 'nextra/components';
 
    1. 假设您负责的节点属于验证器，那么它的 `inbound` 和 `outbound` 连接数量之和应与网络中其他验证器的总数相等。重点在于连接数量的总和，连接是全部`inbound` 还是全部 `outbound`，并不影响总数。
 
-   2. 对于全节点来说，保持 `outbound` 连接数量大于 0 是必要的，以保障节点能够进行同步操作。至于 `inbound` 连接的数量，则在您希望让自己的节点成为网络中的种子节点、让其他节点连接至此的情况下才显得重要，正如在[全节点网络连接](../../nodes/full-node/modify/fullnode-network-connections.mdx#allowing-pfn-connections)一文中讨论的那样。
+   2. 对于全节点来说，保持 `outbound` 连接数量大于 0 是必要的，以保障节点能够进行同步操作。至于 `inbound` 连接的数量，则在您希望让自己的节点成为网络中的种子节点、让其他节点连接至此的情况下才显得重要，正如在[全节点网络连接](../full-node/modify/fullnode-network-connections.mdx#allowing-pfn-connections)一文中讨论的那样。
    
 
 ### 交易池
